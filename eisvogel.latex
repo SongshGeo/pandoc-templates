@@ -679,8 +679,21 @@ $endif$
   $else$
   \usepackage[default]{sourcesanspro}
   \usepackage{fontspec}
-  \usepackage[slantfont,boldfont]{xeCJK} % allow bold and italic
-  \usepackage{sourcecodepro}
+  \usepackage[slantfont,boldfont,PunctStyle=kaiming]{xeCJK} % allow bold and italic
+  % PunctStyle:
+  % quanjiao 全角式：所有标点占一个汉字宽度，相邻两个标点占1.5汉字宽度；
+  % banjiao: 半角式：所有标点占半个汉字宽度；
+  % kaiming: 开明式，句末点号用全角，其他半角；
+  % hangmobanjiao 行末半角式：所有标点占一个汉字宽度，行首行末对齐；
+  % ccT CCT 格式：所有标点符号的宽度略小于一个汉字宽度；
+  % plain 原样（不调整标点间距）。
+
+  \setmainfont{Times New Roman} % 设置主字体为 Times New Roman，用于英文
+  \setCJKmainfont{STSong} % 设置中文主要字体为宋体
+  \setCJKsansfont{STHeiti} % 设置中文无衬线字体为黑体
+  \setCJKmonofont{STFangSong} % 设置中文等宽字体为仿宋
+  \usepackage{sourcecodepro} % 修改 Mac CJK 字体 https://liam.page/2014/11/02/latex-mactex-chinese-support/
+  % 中文全角符号: https://github.com/CTeX-org/ctex-kit/issues/389
 
   % XeLaTeX specific adjustments for straight quotes: https://tex.stackexchange.com/a/354887
   % This issue is already fixed (see https://github.com/silkeh/latex-sourcecodepro/pull/5) but the
@@ -898,6 +911,10 @@ $else$
 $if(disable-header-and-footer)$
 $else$
 \usepackage[headsepline,footsepline]{scrlayer-scrpage}
+\usepackage{listings} % 这里就是复制了 if(listings) 里面的东西
+\newcommand{\passthrough}[1]{#1}
+\lstset{defaultdialect=[5.3]Lua}
+\lstset{defaultdialect=[x86masm]Assembler}
 
 \newpairofpagestyles{eisvogel-header-footer}{
   \clearpairofpagestyles
