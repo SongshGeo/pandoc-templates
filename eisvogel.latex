@@ -678,6 +678,8 @@ $endif$
   $if(mainfont)$
   $else$
   \usepackage[default]{sourcesanspro}
+  \usepackage{fontspec}
+  \usepackage[slantfont,boldfont]{xeCJK} % allow bold and italic
   \usepackage{sourcecodepro}
 
   % XeLaTeX specific adjustments for straight quotes: https://tex.stackexchange.com/a/354887
