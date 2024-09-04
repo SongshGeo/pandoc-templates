@@ -7,6 +7,20 @@
 \usepackage{booktabs}
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{wrapfig}  % 图片环绕文字
+
+% 调整页眉页脚页面大小
+\usepackage[
+  a4paper,
+  top=15mm,
+  bottom=15mm,
+  left=15mm,
+  right=15mm,
+  includeheadfoot=false,
+  footskip=8mm,
+  headheight=15mm,
+  headsep=5mm,
+]{geometry}
 
 % better typography
 \usepackage[activate={true,nocompatibility}, % activate protrusion and font expansion
