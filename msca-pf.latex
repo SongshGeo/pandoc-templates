@@ -8,6 +8,12 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{wrapfig}  % 图片环绕文字
+\usepackage{setspace}  % 设置行距
+
+% 调整图片表格前后空白
+\setlength{\floatsep}{5pt plus 2pt minus 2pt}
+\setlength{\textfloatsep}{5pt plus 2pt minus 2pt}
+\setlength{\intextsep}{5pt plus 2pt minus 2pt}
 
 % 调整页眉页脚页面大小
 \usepackage[
@@ -38,7 +44,9 @@
 % 清除月、日、语言
 \AtEveryBibitem{\clearfield{month}}
 \AtEveryBibitem{\clearfield{day}}
+\AtEveryBibitem{\clearfield{eprint}}
 \AtEveryBibitem{\clearlist{language}}
+\AtEveryBibitem{\clearfield{eprinttype}}
 
 % https://tex.stackexchange.com/questions/140787/removing-line-breaks-in-bibliography-compiled-with-biblatex
 % 将参考文献放到一行
@@ -132,7 +140,10 @@ $body$
 
 % biblatex 引擎下的参考文献
 
-$if(biblatex)$\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$$endif$
+\begin{spacing}{0.7}  % 设置 0.7 倍行距，仅影响参考文献部分
+  \textbf{Reference:}
+  \printbibliography[heading=none]
+\end{spacing}
 
 \end{document}
 
