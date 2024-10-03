@@ -33,7 +33,7 @@
 
 % 页眉设置
 \fancyhead[L]{\small \color{gray}{\sffamily Research Proposal}}
-\fancyhead[R]{\small \color{gray}{\sffamily Application from 2024-09-07}}
+\fancyhead[R]{\small \color{gray}{\sffamily Application from $date$}}
 
 % 页脚设置
 \fancyfoot[C]{\small \color{gray}{\sffamily page \thepage~of~\pageref{LastPage}}}
@@ -118,7 +118,7 @@ Obsidian/mybib.bib}  % 替换为你的参考文献文件
 
 % Pandoc 变量
 % 将标题加粗并设置为与正文相同的字体大小
-\title{\textbf{\large{Co-evolution of human-water interactions from a governing perspective in the Yellow River Basin, China: processes and mechanism}}}
+\title{\textbf{\large{$title$}}}
 % \author{Shuang Song}
 \date{}  % 不打印日期
 
@@ -173,7 +173,6 @@ Obsidian/mybib.bib}  % 替换为你的参考文献文件
 % 封面
 $if(title)$
 \maketitle
-\vspace{-4em}
 $endif$
 
 $if(abstract)$
