@@ -1,5 +1,12 @@
-\documentclass[11pt,draftproposal]{msca-pf}
+\documentclass[11pt]{msca-pf}
 % {{{ packages
+
+% 更少孤行断行
+\tolerance=1500
+\emergencystretch=3em
+\hyphenpenalty=200
+\clubpenalty=10000
+\widowpenalty=10000
 
 % better environments
 \usepackage[nameinlink, noabbrev]{cleveref}
@@ -41,6 +48,17 @@
 
 % 使用 better biber 生成参考文献列表
 \usepackage[style=science,backend=biber,firstinits=true,doi=false,isbn=false,url=false]{biblatex}
+
+% 启用期刊简称
+\DeclareFieldFormat{journaltitle}{\mkbibemph{#1}}
+\DeclareFieldFormat{shortjournal}{\mkbibemph{#1}}
+
+% 优先使用简称，如果没有则使用全名
+\renewbibmacro*{journal}{%
+  \iffieldundef{shortjournal}
+    {\printfield{journaltitle}}
+    {\printfield{shortjournal}}}
+
 % 清除月、日、语言
 \AtEveryBibitem{\clearfield{month}}
 \AtEveryBibitem{\clearfield{day}}
